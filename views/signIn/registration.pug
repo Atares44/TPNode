@@ -5,14 +5,14 @@ html
     body
         form(method='post', action='/registration')
             .form-group
-                input#pseudo.form-control(type='text', placeholder='Saisissez votre pseudo', name='pseudo')
+                input#pseudo.form-control(type='text', placeholder='Saisissez votre pseudo', name='pseudo', value='test')
                 |
-                input#password.form-control(type='password', placeholder='Saisissez votre mot de passe', name ='password' value='')
+                input#password.form-control(type='password', placeholder='Saisissez votre mot de passe', name ='password' value='test')
                 |
-                input#password_confirm.form-control(type='password', placeholder='Saisissez à nouveau votre mot de passe', name ='password' value='')
+                input#password_confirm.form-control(type='password', placeholder='Saisissez à nouveau votre mot de passe', name ='password_confirm', value='test')
                 |
-                input#email.form-control(type='email', placeholder='Saisissez votre adresse email', name='email')
+                input#email.form-control(type='email', placeholder='Saisissez votre adresse email', name='email', value='test@test.fr')
                 |
-                input#email_confirm.form-control(type='email', placeholder='Confirmez votre adresse email', name='email_confirm')
+                input#email_confirm.form-control(type='email', placeholder='Confirmez votre adresse email', name='email_confirm', value='test@test.fr')
                 |
             button.btn.btn-block.btn-default(type='submit') Envoyer

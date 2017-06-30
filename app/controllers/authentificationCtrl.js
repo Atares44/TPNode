@@ -1,17 +1,23 @@
 const Controller = require('./Controller');
 const csv_db = require('csv-db');
-const csvDb = new csv_db('emails.csv', ['pseudo', 'email', 'password']);
+const fs = require('fs');
+const path = require('path');
+
+const pathToFile = path.join(__dirname, 'emails.csv');
+const csvDb = new csv_db(pathToFile, ['pseudo', 'email', 'password']);
 
 class AuthentificationCtrl extends Controller {
 
 	registration(req, res) {
-        console.log("in the registration");
         res.render('signIn/registration');
     }
 
-	postregistration(req, res) {
-		console.log("in the post registration");
-		
+	postregistration(req, res) {		
+
+		if(!fs.existsSync(pathToFile)) {
+    		fs.openSync(pathToFile, 'w');
+		}
+
 		const user = {
 			pseudo: req.body.pseudo,
 			email: req.body.email,
@@ -19,10 +25,11 @@ class AuthentificationCtrl extends Controller {
 		};
 
 		csvDb.insert(user).then((data) => {
-		  console.log(data);
+		  console.log("success "+data);
 		}, (err) => {
 		  console.log(err);
 		});
+
 	}
 
 	login(req, res){
@@ -30,7 +37,6 @@ class AuthentificationCtrl extends Controller {
 	}
 
 	postlogin(req, res){
-		console.log(req.body)
 		res.render()//atares
 	}
 	
