@@ -13,14 +13,11 @@ const config = {
    defaultName: 'index/index'
 };
 
-//dunno what is dat
+//parser le body
 app.use(express.static(path.join(__dirname, '/../public')));
-<<<<<<< HEAD
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-=======
->>>>>>> 9a62afe7e2b66187a1c4bacd86c75b3d861cf049
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/../views'));
 
