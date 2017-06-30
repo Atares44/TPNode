@@ -19,11 +19,14 @@ app.set('views', path.join(__dirname, '/../views'));
 const authenticationCtrl = new authenticationController(config);
 app.get('/registration', authenticationCtrl.registration.bind(authenticationCtrl));
 app.get('/login', authenticationCtrl.login.bind(authenticationCtrl));
+app.get('/list', authenticationCtrl.postlogin.bind(authenticationCtrl));
 
 app.post('/registration', authenticationCtrl.postregistration.bind(authenticationCtrl));
 app.post('/login', authenticationCtrl.postlogin.bind(authenticationCtrl));
+app.post('/list', authenticationCtrl.postlogin.bind(authenticationCtrl));
 
 const indexCtrl = new indexController(config);
 app.get('/', indexCtrl.index.bind(indexCtrl));
+
 
 app.listen(3000);
