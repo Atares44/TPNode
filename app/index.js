@@ -33,7 +33,6 @@ app.get('/login', authenticationCtrl.login.bind(authenticationCtrl));
 app.get('/emailList', authenticationCtrl.emailList.bind(authenticationCtrl));
 
 app.post('/registration', authenticationCtrl.postregistration.bind(authenticationCtrl));
-app.post('/login', authenticationCtrl.postlogin.bind(authenticationCtrl));
 //app.post('/emailList', authenticationCtrl.postemailList.bind(authenticationCtrl));
 
 const indexCtrl = new indexController(config);

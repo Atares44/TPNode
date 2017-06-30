@@ -61,6 +61,14 @@ class AuthentificationCtrl extends Controller {
 
 		res.render('emailList/emailList')
 	}
+
+    emailList(req, res) {
+        res.render('emailList/emailList');
+    }
+
+    postemailList(req, res) {
+
+    }
 	
 }
 module.exports = AuthentificationCtrl;
