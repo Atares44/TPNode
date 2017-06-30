@@ -5,11 +5,11 @@ const csvDb = new csv_db('emails.csv', ['id', 'username', 'password']);
 class AuthentificationCtrl extends Controller {
 
 	registration(req, res) {
-		console.log("in the registration");
-		res.render('signIn/registration');
-	}
+        console.log("in the registration");
+        res.render('signIn/registration');
+    }
 
-	postRegistration(req, res) {
+	postregistration(req, res) {
 		console.log("in the post registration");
 		const user = {
 			pseudo: req.body.pseudo,
@@ -21,6 +21,7 @@ class AuthentificationCtrl extends Controller {
 	login(req, res){
 		res.render('authentification/login');
 	}
+
 	postlogin(req, res){
 		console.log(req.body)
 		res.render()//atares
