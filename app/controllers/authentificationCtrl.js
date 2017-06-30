@@ -14,5 +14,6 @@ class AuthentificationCtrl extends Controller {
 		console.log(req.body)
 		res.render()//atares
 	}
-	module.exports = AuthentificationCtrl;
+	
 }
+module.exports = AuthentificationCtrl;
