@@ -5,13 +5,18 @@ const bodyParser = require('body-parser');
 const ArgumentParser = require('argparse').ArgumentParser;
 const authenticationController = require('./controllers/authentificationCtrl');
 
+const config = {
+   defaultName: 'test'
+};
+
+
 
 app.use(express.static(path.join(__dirname, '/../public')));
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/../views'));
 
-const authenticationCtrl = new authenticationController();
+const authenticationCtrl = new authenticationController(config);
 app.get('/registration', authenticationCtrl.register.bind(authenticationCtrl));
 app.get('/login', authenticationCtrl.login.bind(authenticationCtrl));
 
