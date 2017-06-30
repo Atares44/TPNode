@@ -10,11 +10,6 @@ class AuthentificationCtrl extends Controller {
 	}
 
 	postregistration(req, res) {
-		console.log(req.body);
-		res.render(); //gaetan
-	}
-
-	postRegistration(req, res) {
 		console.log("in the post registration");
 		const user = {
 			pseudo: req.body.pseudo,
