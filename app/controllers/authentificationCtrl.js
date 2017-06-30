@@ -8,7 +8,7 @@ class AuthentificationCtrl extends Controller {
 	}
 
 	login(req, res){
-		res.render('authentification');
+		res.render('authentication/login');
 	}
 	postlogin(req, res){
 		console.log(req.body)
