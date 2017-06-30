@@ -8,6 +8,7 @@ const ArgumentParser = require('argparse').ArgumentParser;
 const authenticationController = require('./controllers/authentificationCtrl');
 const indexController = require('./controllers/indexCtrl');
 
+
 //dunno what is dat
 const config = {
    defaultName: 'index/index'
@@ -29,15 +30,12 @@ app.get('/emailList', authenticationCtrl.emailList.bind(authenticationCtrl));
 app.post('/registration', authenticationCtrl.postregistration.bind(authenticationCtrl));
 app.post('/emailList', authenticationCtrl.postemailList.bind(authenticationCtrl));
 
+
 const indexCtrl = new indexController(config);
 app.get('/', indexCtrl.index.bind(indexCtrl));
 
 //recup le csv //todo comparer data avec données saisie
-const csvDB = new csv_db('input.csv', ['mail', 'password']);
-csvDB.get().then((data) => {
-   console.log(data)
-}, (err) => {
-   console.log(err)
-})
+
+
 
 app.listen(3000);
