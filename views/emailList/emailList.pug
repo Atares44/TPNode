@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    body
+        form(method='post', action='')
+            .form-group
+                input#firstname.form-control(type='text', placeholder='Saisissez votre prénom', name='firstname')
+                |
+                input#lastname.form-control(type='text', placeholder='Saisissez votre nom', name ='lastname' value='')
+                |
+                input#domaine.form-control(type='text', placeholder='Saisissez le nom de domaine', name ='domaine' value='')
+
+            button#resBtn.btn.btn-block.btn-default(type='submit') Afficher
+
+        #result
+
+        script(src='event.js')
