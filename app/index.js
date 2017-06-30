@@ -8,8 +8,13 @@ const ArgumentParser = require('argparse').ArgumentParser;
 const authenticationController = require('./controllers/authentificationCtrl');
 const indexController = require('./controllers/indexCtrl');
 
+//TODO : Redirection si l'utilisateur veux skip la page de connexion/inscription
+//TODO : Correction du fichier CSV qui ajoute systematiquement une ligne [user, password, mail]
+//TODO : 3eme page icomplète
+//TODO : peristence de la connexion
+//TODO : connexion valide que si il est enregister en csv
+//TODO : gestion des erreurs, des issues, etc..
 
-//dunno what is dat
 const config = {
    defaultName: 'index/index'
 };
@@ -25,18 +30,13 @@ app.set('views', path.join(__dirname, '/../views'));
 const authenticationCtrl = new authenticationController(config);
 app.get('/registration', authenticationCtrl.registration.bind(authenticationCtrl));
 app.get('/login', authenticationCtrl.login.bind(authenticationCtrl));
-app.get('/list', authenticationCtrl.postlogin.bind(authenticationCtrl));
+app.get('/emailList', authenticationCtrl.emailList.bind(authenticationCtrl));
 
 app.post('/registration', authenticationCtrl.postregistration.bind(authenticationCtrl));
 app.post('/login', authenticationCtrl.postlogin.bind(authenticationCtrl));
-
+//app.post('/emailList', authenticationCtrl.postemailList.bind(authenticationCtrl));
 
 const indexCtrl = new indexController(config);
 app.get('/', indexCtrl.index.bind(indexCtrl));
-
-
-//recup le csv //todo comparer data avec données saisie
-
-
 
 app.listen(3000);
