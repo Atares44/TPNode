@@ -31,7 +31,7 @@ class AuthentificationCtrl extends Controller {
 
 	postlogin(req, res){
 		console.log(req.body)
-		res.render('emailList/emailList')//atares
+		res.render('emailList/emailList')
 	}
 	
 }

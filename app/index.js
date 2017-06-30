@@ -8,7 +8,7 @@ const authenticationController = require('./controllers/authentificationCtrl');
 const indexController = require('./controllers/indexCtrl');
 
 const config = {
-   defaultName: 'test'
+   defaultName: 'index/index'
 };
 
 app.use(express.static(path.join(__dirname, '/../public')));
@@ -28,7 +28,7 @@ app.post('/login', authenticationCtrl.postlogin.bind(authenticationCtrl));
 app.post('/list', authenticationCtrl.postlogin.bind(authenticationCtrl));
 
 const indexCtrl = new indexController(config);
-app.get('/index', indexCtrl.index.bind(indexCtrl));
+app.get('/', indexCtrl.index.bind(indexCtrl));
 
 
 app.listen(3000);
