@@ -8,6 +8,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/../views'));
 
 const authenticationCtrl = new authenticationController();
-app.get('/registration', authenticationCtrl.register.bind(authenticationCtrl));
+app.get('/registration', authenticationCtrl.registration.bind(authenticationCtrl));
+app.post('/registration', authenticationCtrl.postRegistration.bind(authenticationCtrl));
 
 app.listen(3000);
