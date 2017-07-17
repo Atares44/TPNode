@@ -2,6 +2,8 @@ const Controller = require('./Controller');
 const csv_db = require('csv-db');
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const pathToFile = path.join(__dirname, 'emails.csv');
 const csvDb = new csv_db(pathToFile, ['id', 'pseudo', 'password']);
@@ -21,24 +23,33 @@ class AuthentificationCtrl extends Controller {
     }
 
 
-	postregistration(req, res) {		
+	postregistration(req, res) {
 
-		if(!fs.existsSync(pathToFile)) {
+        console.log("test");
+
+        if(!fs.existsSync(pathToFile)) {
     		fs.openSync(pathToFile, 'w');
 		}
 
-		const user = {
+        let hashPassword=null;
+
+        bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+        	hashPassword=hash;
+        });
+
+        console.log(hashPassword);
+
+        const user = {
             id: req.body.email,
-			pseudo: req.body.pseudo,
-			password: req.body.password
-		};
+            pseudo: req.body.pseudo,
+            password: hashPassword
+        };
 
 		csvDb.insert(user).then((data) => {
-		  console.log("success "+data);
+			console.log("success "+data);
 		}, (err) => {
-		  console.log(err);
+			console.log(err);
 		});
-
 	}
 
 
@@ -50,6 +61,7 @@ class AuthentificationCtrl extends Controller {
             pseudo: req.body.pseudo,
             password: req.body.password
         };
+
 
         //if (csvDb.get(req.body.email) === USER) { console.log("god damn it"); }
 
