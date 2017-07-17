@@ -8,6 +8,6 @@
 
 4 - Dans le terminal, se placer dans le dossier app; le fichier index.js s'y trouve
 
-5 - Lancer la commande node index.js afin de lancer le serveur
+5 - Lancer la commande nodemon index.js afin de lancer le serveur
 
 7 - Ouvrir un navigateur et accéder au lien localhost:3000
