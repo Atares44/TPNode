@@ -18,7 +18,7 @@ const indexController = require('./controllers/indexCtrl');
 
 
 const config = {
-   defaultName: 'index/index'
+    defaultName: 'index/index'
 };
 
 //parser le body
@@ -34,6 +34,7 @@ app.get('/registration', authenticationCtrl.registration.bind(authenticationCtrl
 app.get('/login', authenticationCtrl.login.bind(authenticationCtrl));
 app.get('/emailList', authenticationCtrl.emailList.bind(authenticationCtrl));
 
+app.post('/login', authenticationCtrl.postlogin.bind(authenticationCtrl));
 app.post('/registration', authenticationCtrl.postregistration.bind(authenticationCtrl));
 //app.post('/emailList', authenticationCtrl.postemailList.bind(authenticationCtrl));
 
