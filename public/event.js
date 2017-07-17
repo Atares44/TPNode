@@ -1,18 +1,22 @@
 /**
  * Created by maxime on 30/06/17.
  */
-//Tableau de résultat
-var array = [];
 
-//Tableau d'emails
-var arrayMail = [];
-
-//Zone de résultat
-var res = document.getElementById("result");
 
 //event
 document.getElementById("listE").addEventListener("submit", function (evt) {
     evt.preventDefault();
+
+    //Zone de résultat
+    var res = document.getElementById("result");
+
+    //Tableau de résultat
+    var array = [];
+
+    //Tableau d'emails
+    var arrayMail = [];
+
+    $('#result').empty();
 
     //Récupération des valeurs saisies par l'utilisateur
     var firstname = document.getElementById("firstname").value;
@@ -25,6 +29,8 @@ document.getElementById("listE").addEventListener("submit", function (evt) {
     arrayMail.push(firstname+"-"+lastname+"@"+domaine);
     arrayMail.push(lastname+"-"+firstname+"@"+domaine);
     arrayMail.push(firstname.substr(0,1)+lastname+"@"+domaine);
+
+    console.log(arrayMail);
 
     //Création du tableau de résultats
     var tab = document.createElement('table');
@@ -55,6 +61,8 @@ document.getElementById("listE").addEventListener("submit", function (evt) {
         array=[];
 
     }
+
+    arrayMail=[];
 
     tab.appendChild(thead);
     tab.appendChild(tbody);

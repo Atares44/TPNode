@@ -52,9 +52,14 @@ class AuthentificationCtrl extends Controller {
 		});
 	}
 
-
-
 	postlogin(req, res){
+
+        app.use(session({
+            genid: function(req) {
+                return genuuid() // use UUIDs for session IDs
+            },
+            secret: 'keyboard cat'
+        }))
 
 		const USER = {
             id: req.body.email,
@@ -66,7 +71,7 @@ class AuthentificationCtrl extends Controller {
         //if (csvDb.get(req.body.email) === USER) { console.log("god damn it"); }
 
 
-        console.log("field " + req.body.email)
+        console.log("field " + req.body.email);
         console.log("success "+csvDb.get(req.body.email));
 		//if(csv.get(req.body.email).email === req.body.email) { console.log("god damn it");}
 		//console.log("success "+req.body.email);

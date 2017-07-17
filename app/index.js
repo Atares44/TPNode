@@ -1,5 +1,6 @@
 //import
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const csv_db = require('csv-db')
 const app = express();
@@ -14,6 +15,7 @@ const indexController = require('./controllers/indexCtrl');
 //TODO : peristence de la connexion
 //TODO : connexion valide que si il est enregister en csv
 //TODO : gestion des erreurs, des issues, etc..
+
 
 const config = {
    defaultName: 'index/index'
