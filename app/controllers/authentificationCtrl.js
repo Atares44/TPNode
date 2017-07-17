@@ -26,6 +26,7 @@ class AuthentificationCtrl extends Controller {
 
 		csvDb.insert(user).then((data) => {
 		  console.log("success "+data);
+		  res.render('success');
 		}, (err) => {
 		  console.log(err);
 		});
