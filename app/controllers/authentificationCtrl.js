@@ -31,10 +31,11 @@ class AuthentificationCtrl extends Controller {
     		fs.openSync(pathToFile, 'w');
 		}
 
-        let hashPassword=null;
+        let hashPassword = null;
 
         bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-        	hashPassword=hash;
+        	alert(hash);
+        	hashPassword = hash;
         });
 
         console.log(hashPassword);
