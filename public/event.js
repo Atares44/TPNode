@@ -1,37 +1,60 @@
 /**
  * Created by maxime on 30/06/17.
  */
+//Tableau de résultat
 var array = [];
 
-var firstname = document.getElementById("firstname").textContent;
-var lastname = document.getElementById("lastname").textContent;
-var domaine = document.getElementById("domaine").textContent;
+//Tableau d'emails
+var arrayMail = [];
 
-array.push(firstname);
-array.push(lastname);
-array.push(domaine);
-
+//Zone de résultat
 var res = document.getElementById("result");
 
 //event
 document.getElementById("listE").addEventListener("submit", function (evt) {
     evt.preventDefault();
 
+    //Récupération des valeurs saisies par l'utilisateur
+    var firstname = document.getElementById("firstname").value;
+    var lastname = document.getElementById("lastname").value;
+    var domaine = document.getElementById("domaine").value;
+
+    //Créations des emails
+    arrayMail.push(firstname+"."+lastname+"@"+domaine);
+    arrayMail.push(lastname+"."+firstname+"@"+domaine);
+    arrayMail.push(firstname+"-"+lastname+"@"+domaine);
+    arrayMail.push(lastname+"-"+firstname+"@"+domaine);
+    arrayMail.push(firstname.substr(0,1)+lastname+"@"+domaine);
+
+    //Création du tableau de résultats
     var tab = document.createElement('table');
+    tab.className = "table table-striped";
     var thead = document.createElement('thead');
     var tbody = document.createElement('tbody');
     var th = document.createElement('th');
-    var tr = document.createElement('tr');
 
-    array.forEach (function(e){
+    for (var i=0; i<5; i++) {
 
+        var tr = document.createElement('tr');
 
-        var td = document.createElement('td');
-        td.appendChild(document.createTextNode(e));
+        array.push(firstname);
+        array.push(lastname);
+        array.push(arrayMail[i]);
 
-        tr.appendChild(td);
-        tbody.appendChild(tr);
-    })
+        console.log(array);
+
+        array.forEach(function (e) {
+
+            var td = document.createElement('td');
+            td.appendChild(document.createTextNode(e));
+
+            tr.appendChild(td);
+            tbody.appendChild(tr);
+        });
+
+        array=[];
+
+    }
 
     tab.appendChild(thead);
     tab.appendChild(tbody);
